@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VCWebCalculadora", "VCWebCalculadora\VCWebCalculadora.csproj", "{02C2CA76-12EA-4D33-A5D0-9A32FC4FB76E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02C2CA76-12EA-4D33-A5D0-9A32FC4FB76E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02C2CA76-12EA-4D33-A5D0-9A32FC4FB76E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02C2CA76-12EA-4D33-A5D0-9A32FC4FB76E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02C2CA76-12EA-4D33-A5D0-9A32FC4FB76E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A63903EC-96CF-470D-BFFB-F7A5D04473E7}
+	EndGlobalSection
+EndGlobal

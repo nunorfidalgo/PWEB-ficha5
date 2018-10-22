@@ -1,0 +1,41 @@
+﻿@*@model VCWebCalculadora.Controllers.CalculadoraSimples*@
+
+@{
+    ViewBag.Title = "CalculadresWeb";
+}
+
+<h2>CalculadresWeb</h2>
+
+@using (Html.BeginForm("Index", "Calcular", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="text" name="OperandoEsq" value=@ViewBag.OperandoEsq class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="text" name="OperandoDir" value=@ViewBag.OperandoDir class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" name="TipoOp" value="Adição" class="btn btn-default" />
+                <input type="submit" name="TipoOp" value="Subtração" class="btn btn-default" />
+                <input type="submit" name="TipoOp" value="Multiplicação" class="btn btn-default" />
+                <input type="submit" name="TipoOp" value="Divisão" class="btn btn-default" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="text" value=@ViewBag.Resultado class="form-control" readonly="readonly" />
+            </div>
+        </div>
+    </div>
+}
