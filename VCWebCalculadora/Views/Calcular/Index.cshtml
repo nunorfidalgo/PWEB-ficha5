@@ -1,41 +1,49 @@
-﻿@*@model VCWebCalculadora.Controllers.CalculadoraSimples*@
+﻿@model VCWebCalculadora.Models.CalculadoraSimples
 
-@{
-    ViewBag.Title = "CalculadresWeb";
-}
+    @{
+        ViewBag.Title = "Index";
+    }
 
-<h2>CalculadresWeb</h2>
+    <h2>Máquina de Calcular MVC</h2>
 
-@using (Html.BeginForm("Index", "Calcular", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <div class="form-group">
-            <div class="col-md-10">
-                <input type="text" name="OperandoEsq" value=@ViewBag.OperandoEsq class="form-control" />
+    @using (Html.BeginForm("Index", "Calcular", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.OperandoEsq, new { @class = "form-control" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-10">
-                <input type="text" name="OperandoDir" value=@ViewBag.OperandoDir class="form-control" />
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.OperandoDir, new { @class = "form-control" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-10">
-                <input type="submit" name="TipoOp" value="Adição" class="btn btn-primary" />
-                <input type="submit" name="TipoOp" value="Subtração" class="btn btn-primary" />
-                <input type="submit" name="TipoOp" value="Multiplicação" class="btn btn-primary" />
-                <input type="submit" name="TipoOp" value="Divisão" class="btn btn-primary" />
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.NumDigDec, ViewBag.ListaNumDigDec as List<SelectListItem>, new { @class = "form-control" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-10">
-                <input type="text" value=@ViewBag.Resultado class="form-control" readonly="readonly" />
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" name="TipOp" value="Adição" class="btn btn-default" />
+                    <input type="submit" name="TipOp" value="Subtração" class="btn btn-default" />
+                    <input type="submit" name="TipOp" value="Multiplicação" class="btn btn-default" />
+                    <input type="submit" name="TipOp" value="Divisão" class="btn btn-default" />
+                </div>
             </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="text" value=@ViewBag.Resultado class="form-control" readonly="readonly" />
+                </div>
+            </div>
+
         </div>
-    </div>
-}
+    }
