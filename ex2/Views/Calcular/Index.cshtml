@@ -1,0 +1,46 @@
+﻿@model ex2.Models.CalculadoraViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{ string OperandoEsq = "", OperandoDir = "", Resultado = "";
+    if (Model != null)
+    {
+        OperandoEsq = Model.OperandoEsq;
+        OperandoDir = Model.OperandoDir;
+        Resultado = Model.Resultado;
+    }
+}
+
+<h2>Máquina de Calcular MVC</h2>
+
+@using (Html.BeginForm("Index", "Calcular", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="text" name="OperandoEsq" value="@OperandoEsq" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="text" name="OperandoDir" value="@OperandoDir" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" name="Operacao" value="Adição" class="btn btn-primary" />
+                <input type="submit" name="Operacao" value="Subtração" class="btn btn-primary" />
+                <input type="submit" name="Operacao" value="Multiplicação" class="btn btn-primary" />
+                <input type="submit" name="Operacao" value="Divisão" class="btn btn-primary" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="text" value="@Resultado" class="form-control" readonly="readonly" />
+            </div>
+        </div>
+    </div>
+}

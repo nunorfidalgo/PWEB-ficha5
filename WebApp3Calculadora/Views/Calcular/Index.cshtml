@@ -1,0 +1,63 @@
+﻿@model WebApp3Calculadora.Models.CalculadoraViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Máquina de Calcular</h2>
+
+
+@using (Html.BeginForm("Index", "Calcular", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>CalculadoraViewModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.OperandoEsq, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OperandoEsq, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OperandoEsq, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OperandoDir, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OperandoDir, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OperandoDir, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DDLDigitosDec, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.NDigitosDec, Model.DDLDigitosDec, new { @class = "form-control" })
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" name="Operacao" value="Adição" class="btn btn-primary" />
+                <input type="submit" name="Operacao" value="Subtração" class="btn btn-primary" />
+                <input type="submit" name="Operacao" value="Multiplicação" class="btn btn-primary" />
+                <input type="submit" name="Operacao" value="Divisão" class="btn btn-primary" />
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Resultado, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Resultado, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.Resultado, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
